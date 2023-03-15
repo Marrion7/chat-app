@@ -12,11 +12,11 @@ class ChatConsumer(AsyncWebsocketConsumer):
     # Connection to the server
     async def connect(self):
         #conect to the url
-        self.group_name = self.scope["url_route"]["kwarg"]["group_name"]
+        self.chat_box_name = self.scope["url_route"]["kwargs"]["chat_box_name"]
         
         #give a name to the group
         # Note: Only alphanumerics, hyphens, underscores, or periods are allowed!
-        self.room_group_name = "chat_%s" % self.group_name
+        self.room_group_name = "chat_%s" % self.chat_box_name
         
         await self.channel_layer.group_add(self.group_name, self.channel_name)
         

@@ -1,8 +1,7 @@
+from django.contrib import admin
 from django.urls import path
-from . import views
-
+from . import views 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    
+    path("chat/<str:chat_box_name>/", views.chat_box, name="chat"),
 ]
